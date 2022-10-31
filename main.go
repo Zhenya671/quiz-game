@@ -46,13 +46,13 @@ problemLoop:
 
 		select {
 		case <-timer.C:
+			fmt.Printf("\nyou scored %d out of %d\n", correct, len(problems))
 			break problemLoop
 		case answer := <-answerCh:
 			if answer == p.a {
 				correct++
 			}
 		}
-		fmt.Printf("you scored %d out of %d\n", correct, len(problems))
 	}
 
 }
